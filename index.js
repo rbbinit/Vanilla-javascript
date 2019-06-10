@@ -1,18 +1,27 @@
-const title= document.getElementById("title");
-title.innerHTML= "hi i am hs";
-title.style.color= 'red';
-//js로 html을 조작할 수 있다.
-const titles = document.querySelectorAll("#title");
+// === 3개. 같으면
+//const age = prompt("how old"); //alert랑 비슷
+//console.log(age);
 
-function handleResize(event){
-    console.log(event)
-}
-
-window.addEventListener("resize", handleResize);
-//call function
-console.log(title);
+const title= document.querySelector("#title");
+const base_color= "white";
+const other_color ="#16a085";
 
 function handleClick(){
-    title.style.color= "blue";
+    const current_color= title.style.color;
+    if(current_color ===  base_color)
+    {
+        title.style.color= other_color;
+    }
+    else
+    {
+        title.style.color= base_color;
+    }
 }
-title.addEventListener("click", handleClick);
+//flatuicolors.com
+
+function init(){
+    title.style.color= base_color;
+    title.addEventListener("click", handleClick);
+    //mouseenter 마우스가 들어갈때마다 반응함
+}
+init();
